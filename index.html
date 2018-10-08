@@ -68,32 +68,32 @@
     </ul>
 
     <div class="list">
-      <h2>Guide d'intégration</h2>
+      <h2>Integration guide</h2>
       <ul class="menu-root">
         <li><h3>SDK <span class="versionGuide">preprod</span></h3></li>
     <li>
       <a href="#intro" class="sidebar-link current" data-scroll="">ComexposiumConnect SSO</a>
     <ul class="menu-sub">
-      <li><a class="section-link active" data-scroll="" href="#sso">Le SSO</a></li>
-      <li><a class="section-link" data-scroll="" href="#script-loader">Le script loader</a></li>
-      <li><a class="section-link" data-scroll="" href="#code-html">Le code HTML</a></li>
-      <li><a class="section-link" data-scroll="" href="#Exemple">Exemple</a></li>
-      <li><a class="section-link" data-scroll="" href="#Methodes">Les Méthodes</a></li>
+      <li><a class="section-link active" data-scroll="" href="#sso">SSO</a></li>
+      <li><a class="section-link" data-scroll="" href="#script-loader">Script loader</a></li>
+      <li><a class="section-link" data-scroll="" href="#code-html">HTML Code</a></li>
+      <li><a class="section-link" data-scroll="" href="#Exemple">Example</a></li>
+      <li><a class="section-link" data-scroll="" href="#Methodes">Methods</a></li>
       <ul>
-        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-connexion-sso">Ouvrir l'interface de connexion</a></li>
-        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-creation-sso">Ouvrir l'interface de création de compte</a></li>
-        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-mot-de-passe">Ouvrir l'interface de mot de passe oublié</a></li>
-        <li><a class="section-link" data-scroll="" href="#Verifier-connexion">Vérifier si l'utilisateur est connecté</a></li>
-        <li><a class="section-link" data-scroll="" href="#Deconnecter-utilisateur">Déconnecter un utilisateur</a></li>
+        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-connexion-sso">Open the login interface</a></li>
+        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-creation-sso">Open the account creation interface</a></li>
+        <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-mot-de-passe">Open the forgotten password interface</a></li>
+        <li><a class="section-link" data-scroll="" href="#Verifier-connexion">Check if the user is logged in</a></li>
+        <li><a class="section-link" data-scroll="" href="#Deconnecter-utilisateur">Disconnect the user</a></li>
       </ul>
-        <li><a class="section-link" data-scroll="" href="#Evenements">Les Évènements</a></li>
+        <li><a class="section-link" data-scroll="" href="#Evenements">Events</a></li>
         <ul>
           <li><a class="section-link" data-scroll="" href="#Widget-charge">comexposiumConnectLoaded</a></li>
           <li><a class="section-link" data-scroll="" href="#Utilisateur-connecte">comexposiumConnectLogged</a></li>
           <li><a class="section-link" data-scroll="" href="#Utilisateur-cree">comexposiumConnectRegisterOk</a></li>
         </ul>
-        <li><a class="section-link" data-scroll="" href="#Recuperation-email">Récupérer les informations de l'utilisateur</a></li>
-        <li><a class="section-link" data-scroll="" href="#Erreurs">Codes d'erreurs</a></li>
+        <li><a class="section-link" data-scroll="" href="#Recuperation-email">Retrieve user information</a></li>
+        <li><a class="section-link" data-scroll="" href="#Erreurs">Errors Codes</a></li>
     </ul>
 </ul>
 
@@ -106,77 +106,81 @@
 
 <h1 id="intro" data-scroll="" class="headerlink">ComexposiumConnect SSO</h1>
 
-    <p>Le widget ComexposiumConnect SSO est utilisé pour simplifier l'expérience de nos utilisateurs lorsqu'ils passent d'un service vers un autre.</p>
+    <p>The ComexposiumConnect SSO widget is used to simplify the experience of our users as they move from one service to another.</p>
 
-    <p>Nous mettons également à disposition une <a href="http://docs.comexposium-sso.com/" target="_blank">API</a> dotée d'un bac à sable pour pouvoir directement tester les méthodes mises à votre disposition.</p>
+    <p>You can check our <a href="http://docs.comexposium-sso.com/" target="_blank">API</a> to test all our routes. There is a sandbox plugged on the pre-preproduction environment.</p>
 
-    <p>Ce guide va quant à lui vous permettre d'intégrer le widget ComexposiumConnect SSO sur votre environnement.</p>
+    <p>This documentation provides example on how to install, use and get some basic informations about comexposiumConnect.</p>
+
+    <p>If you are a third party user, you will probably receive an account with specific rights allowing you to have specific access to the API. This account will be flagged as “thirdPartyAccount” and will have specific rights only for API purpose.<br />
+Using a “thirdPartyAccount” account won’t work on frontend. Please consider creating a brand new one in order to use it as a regular user on frontend.</p>
 
 <h2 id="sso"><a href="#sso" class="headerlink" title="Sso" data-scroll="">Le SSO</a></h2>
 
-  <h4>Le principe</h4>
+  <h4>The principle</h4>
 
-  <p>L’authentification unique ou Single Sign-On (SSO) est la fonction qui permet à un utilisateur de s’authentifier
-  <b>une seule fois pour toute la durée d’une session indépendamment du nombre d’applications qui nécessitent une authentification</b>.<br />
-  Les utilisateurs peuvent alors accéder à leurs données directement en toute transparence, sans contrainte de ressaisie d’un nouveau couple nom d’utilisateur/mot de passe.</p>
+  <p>Single Sign-On (SSO) is the feature that allows a user to authenticate
+  <b>once for the duration of a session regardless of the number of applications that require authentication</b>.<br />
+  Users can then access their data directly seamlessly, without the need to re-enter a new pair of username / password.</p>
 
-  <h4>L'objectif</h4>
+  <h4>The goal</h4>
 
-  <p>Pour que le système fonctionne, il faut que le widget ComexposiumConnect <b>soit installé sur toutes les pages de votre application / plateforme.</b>
-     Une fois le widget installé, vous pourrez vous <a data-scroll="" href="#Ouvrir-interface-creation-sso">créer un compte</a> et tester directement le bon fonctionnement du SSO.
+  <p>For the system to work, the ComexposiumConnect widget must <b>be installed on all pages of your application / platform.</b>
+     Once the widget is installed, you can <a data-scroll="" href="#Ouvrir-interface-creation-sso">create an account</a> and directly test the correct operation of the SSO.
   </p>
 
-  <h4>Le fonctionnement</h4>
+  <h4>How it works</h4>
 
-  <p>Une fois le widget correctement installé et initiliasé, le passage d'une plateforme Comexposium vers votre application / plateforme doit pouvoir se faire sans que l'utilisateur n'ait besoin de se connecter.</p>
-  <p>Pour vous assurer du bon fonctionnement du passage SSO d'une des plateformes Comexposium vers votre application / plateforme, vous avez à votre disposition toutes les méthodes offertes par <a target="_blank" href="http://docs.comexposium-sso.com/">l'API Comexposium</a> en plus de celles disponibles ci-dessous.</p>
+  <p>Once the widget is correctly installed and initialized, the transition from a Comexposium platform to your application / platform must be possible without the user needing to connect.</p>
+  <p>To ensure the smooth operation of the SSO passage from one of the Comexposium platforms to your application / platform, you have at your disposal all the methods offered by <a target="_blank" href="http://docs.comexposium-sso.com/">the Comexposium API</a> in addition to those available below.</p>
 
-<h2 id="script-loader"><a href="#script-loader" class="headerlink" title="Script Loader" data-scroll="">Le script loader</a></h2>
+<h2 id="script-loader"><a href="#script-loader" class="headerlink" title="Script Loader" data-scroll="">Script loader</a></h2>
 
-<p>Après le chargement de jQuery sur votre page, vous devrez charger le script suivant qui se décline en 2 environnements suivant l'état d'avancement de votre projet :</p>
+<p>After jQuery loaded on your page, you will need to load the following script that comes in 2 environments depending on the progress of your project :</p>
 
-<h4>Pré-production :</h4>
+<h4>Pre-production:</h4>
 
 <p>
   <figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3.eu-west-2.amazonaws.com/s3.preprod-comexposium/js/loader.min.js"</span>&gt;</span></span><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 </p>
 
-<h4>Production :</h4>
+<h4>Production:</h4>
 
 <p>
   <figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3-eu-west-1.amazonaws.com/s3.comexposium/js/loader.min.js"</span>&gt;</span></span><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 </p>
 
-    <p>Pour que le widget <strong>ComexposiumConnect</strong> fonctionne correctement, il faut que soit chargé jQuery dans la page. Nous vous encourageons à utiliser au moins jQuery 2.0, mais nous recommandons fortement d'utiliser une version plus récente (3.x). <br />
-       <br />Par mesure de sécurité, si nous ne détectons pas de jQuery ou une version antérieure à la version 2.0, nous chargeons dynamiquement jQuery 3.1.1 sans prendre en charge la variable dollar ($). Cela vous permet d'utiliser votre propre version ou une autre bibliothèque utilisant cette variable.
-La version injectée par le widget est :<br />
+    <p>In order to use the <strong>ComexposiumConnect</strong> widget, You need to load jQuery in order to use ComexposiumConnect.
+We encourage third party applications to use at least jQuery 2.0, but we strongly recommend to use a more recent version (3.x). <br />
+       <br /> As a security, if we detect no jQuery or a version older than 2.0, we dynamically load jQuery 3.1.1 without taking hand on the dollar ($) Javascript var. It allows you to still use your version or your library.
+       The new version is available in the var: <br />
 <figure class="highlight js"><table>
   <tbody><tr><td class="code">
     <pre><span class="line"><span class="name">window.</span><span class="string">cxpm</span><span class="name">.jQuery</span></span></pre></td></tr></tbody></table>
 </figure></p>
 <p>
-<li>Si la variable "$" n'existe pas dans la page, nous la créons avec la version chargée.</li><br />
-<li>Si la variable "$" existe mais pas dans une version suffisamment récente, nous la copions dans window.cxpm.jQuery.</li>
+<li>If no $ var exists in the page, we create it with the loaded version.</li><br />
+<li>If $ is ok with the version, we copy it to window.cxpm.jQuery.</li>
 </p>
 
-<p>Une fois le script loader.min.js chargé et autorisé, vous avez accès aux variables globales <b>comexposiumCap</b> et <b>comexposiumConnect</b>.</p>
+<p>Once the loader.min.js script is loaded and authorized from Comexposium Team, you can access to the global variables <b>comexposiumCap</b> and <b>comexposiumConnect</b>.</p>
 
-<p>Vous pouver également vérifier la version du loader et du SDK avec lesquels vous travaillez :</p>
+<p>You can also check which version of the loader and SDK you work with by doing:</p>
 
 <figure class="highlight js"><table>
   <tbody><tr><td class="code">
     <pre><span class="line"><span class="name">cxpm.</span><span class="string">version</span><span class="name">.useraccount</span></span><br /><span class="comment"><i>{loaderBuild: "201X.X.X", sdkBuild: "201X.X.X"}</i></span></pre></td></tr></tbody></table>
 </figure>
 
-<p>Il ne vous reste désormais plus qu'à inclure le <a href="#code-html" data-scroll="">code HTML</a> dans votre page pour faire fonctionner le widget.</p>
+<p>Now you just have to include the <a href="#code-html" data-scroll="">HTML Code</a> html code in your page to make the widget work.</p>
 
 
-<h2 id="code-html"><a href="#code-html" class="headerlink" title="Code-HTML" data-scroll="">Le code HTML</a></h2>
+<h2 id="code-html"><a href="#code-html" class="headerlink" title="Code-HTML" data-scroll="">HTML Code</a></h2>
 <p class="tip">
-Les valeurs à renseigner dans les attributs du code HTML sont propres à chaque évènement, à chaque salon et à chaque session. Ils vous seront communiqués directement par votre contact chez Comexposium. <br />
-Votre contact chez Comexposium devra également <b>autoriser tous les noms de domaine sur lesquels vous appelez et chargez le widget</b> sans quoi vous aurez l'erreur suivante dans la console javascript de votre navigateur :<br /> <i><b style="color:#968e8e;">wrong application token</b></i>
+The values ​​to be entered in the attributes of the HTML code are specific to each event, each salon and each session. They will be communicated to you directly by your contact at Comexposium. <br />
+Your contact at Comexposium will also have to <b>allow all the domain names you call and load the widget</b> otherwise you will have the following error in the javascript console of your browser:<br /> <i><b style="color:#968e8e;">wrong application token</b></i>
 </p>
-<p>Une fois que tous vos noms de domaine ont été autorisés par Comexposium , que le <a href="#script-loader" data-scroll="">script loader.min.js</a> ainsi que votre version de jQuery sont bien chargés dans votre page, ajoutez le code suivant dans la partie body de votre code HTML où vous souhaitez intégrer le widget ComexposiumConnect :</p>
+<p>Once all your domain names have been authorized by Comexposium, and the <a href="#script-loader" data-scroll="">loader.min.js script</a> as well as your version of jQuery are well loaded in your page, add the following code in the body of your HTML code where you want to integrate the ComexposiumConnect widget:</p>
 <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"cxpmClientAccountWidget"</span> <br />     <span class="attr">data-salon</span>=<span class="string">"[SHOWROOM_NAME]"</span>
      <span class="attr">data-sessionSalon</span>=<span class="string">"[SHOWROOM_SESSION]"</span> <br />     <span class="attr">data-application</span>=<span class="string">"[YOUR_APPLICATION_ID]"</span>
@@ -184,22 +188,22 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
      &gt;</span><span class="undefined"></span>
     <span class="comment">&lt;!-- Nothing here --&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>Il s'agit d'une simple div possédant 4 attributs. Chacun de ces attributs renvoie à l'événement sur lequel il sera configuré :</p>
+<p>This is a simple div with 4 attributes. Each of these attributes refers to the event on which it will be configured:</p>
 <p>
   <ul>
-    <li><b>[SHOWROOM_NAME]</b> : Le nom du salon en rapport avec votre utilisation.</li>
-    <li><b>[SHOWROOM_SESSION]</b> : Le nom de la session liée à votre utilisation</li>
-    <li><b>[YOUR_APPLICATION_ID]</b> : Votre identifiant dans l'environnement ComexposiumConnect.<br /> Celui-ci est unique quel que soit le showroom ou la session.<br /> Il diffère également selon que vous soyez en production ou en pré-production.</li>
-    <li><b>[LANGUAGE]</b> :Il peut prendre 2 valeurs possibles : "fre-FR" ou "eng-GB"</li>
+    <li><b>[SHOWROOM_NAME]</b> : The name of the show related to your use.</li>
+    <li><b>[SHOWROOM_SESSION]</b> : The name of the session related to your use</li>
+    <li><b>[YOUR_APPLICATION_ID]</b> : Your application id in the ComexposiumConnect environment.<br /> This one is unique whatever the showroom or the session.<br /> It also differs depending on whether you are in production or pre-production.</li>
+    <li><b>[LANGUAGE]</b> :It can take 2 possible values : "fre-FR" or "eng-GB"</li>
   </ul>
 
-  <p class="success">Ces éléments vous seront transmis par votre contact chez Comexposium.</p>
+  <p class="success">These elements will be sent to you by your contact at Comexposium.</p>
 
 </p>
 
-<h2 id="Exemple"><a href="#Exemple" class="headerlink" title="Exemple" data-scroll="">Exemple complet</a></h2>
-<p>Voici un exemple d'intégration complet utilisant l'environnement de pré-production, et ayant été autorisé pour le domaine : <b>http://127.0.0.1:63569</b></a>
-. Vous pouvez le tester en lançant un web server en local (<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank"><i>notamment grâce cette application chrome gratuite</i></a>) sur le port <a href="http://127.0.0.1:63569" target="_blank">63569</a> : </p>
+<h2 id="Exemple"><a href="#Exemple" class="headerlink" title="Exemple" data-scroll="">Full example</a></h2>
+<p>Here is an example of full integration using the pre-production environment, and having been authorized for the domain name: <b>http://127.0.0.1:63569</b></a>
+. You can test it by launching a local web server (<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank"><i>especially thanks to this free chrome app</i></a>) on the http port <a href="http://127.0.0.1:63569" target="_blank">63569</a> : </p>
 
 <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre>
@@ -236,14 +240,14 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
     <span class="tag">&lt;/html&gt;</span>
   </pre></td></tr></tbody></table></figure>
 
-<h2 id="Methodes"><a href="#Methodes" class="headerlink" title="Methodes" data-scroll="">Les méthodes</a></h2>
+<h2 id="Methodes"><a href="#Methodes" class="headerlink" title="Methodes" data-scroll="">Methods</a></h2>
 
-<p>La plupart des méthodes ci-dessous sont également disponibles via <a href="http://docs.comexposium-sso.com/" target="_blank">l'API ComexposiumConnect</a>.
-  Vous trouverez également des routes API concernant l'authentification, la gestion des utilisateurs, la gestion d'applications tierces, et la gestion de la selection.
+<p>Most of the methods below are also available on the <a href="http://docs.comexposium-sso.com/" target="_blank">ComexposiumConnect API</a>.
+  You'll also find API routes for authentication, user management, third-party application management, and selection management.
 </p>
 
-<h2 id="Ouvrir-interface-connexion-sso"><a href="#Ouvrir-interface-connexion-sso" class="headerlink" title="Ouvrir-interface-connexion-sso" data-scroll="">Ouvrir l'interface de connexion</a></h2>
-<p>Voici un exemple ci-dessous qui ouvre l'interface de connexion SSO :</p>
+<h2 id="Ouvrir-interface-connexion-sso"><a href="#Ouvrir-interface-connexion-sso" class="headerlink" title="Ouvrir-interface-connexion-sso" data-scroll="">Open the login interface</a></h2>
+<p>Here is an example below that opens the SSO login interface:</p>
 </p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
@@ -254,11 +258,11 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="OpenCap2">Ouvrir l'interface de connexion SSO</button>
+  <button id="OpenCap2">Open the SSO login interface</button>
 </div>
 
-<h2 id="Ouvrir-interface-creation-sso"><a href="#Ouvrir-interface-creation-sso" class="headerlink" title="Ouvrir-interface-creation-sso" data-scroll="">Ouvrir l'interface de création de compte</a></h2>
-<p>Voici un exemple ci-dessous qui ouvre l'interface de création de compte SSO :</p>
+<h2 id="Ouvrir-interface-creation-sso"><a href="#Ouvrir-interface-creation-sso" class="headerlink" title="Ouvrir-interface-creation-sso" data-scroll="">Open the account creation interface</a></h2>
+<p>Here is an example below that opens the SSO account creation interface:</p>
 </p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
@@ -269,17 +273,17 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="myOpenCap">Ouvrir l'interface de création SSO</button>
+  <button id="myOpenCap">Open the SSO account creation interface</button>
 </div>
 
-<p>Il est également possible de passer de l'interface de connexion vers l'interface de création de compte directement depuis le bouton <b>"Créer un compte"</b> dans le footer du widget une fois ouvert et inversement :</p>
+<p>It is also possible to switch from the login interface to the account creation interface directly from the button <b>"Create an account"</b> in the footer of the widget once opened and vice versa :</p>
 
 <img id="widgetVisuel" src="./cxpmconnect_files/widget-visuel.jpg" alt="widget-visual">
 
-<p class="tip">Sur l'environnemement de pré-production, les emails que vous recevez normalement (création de compte, mot de passe oublié, newsletter... ) sont tous dirigés vers notre boite mail interne <b>dwebetdsi@gmail.com</b> dont vous pourrez demander l'accès à votre contact chez Comexposium.</p>
+<p class="tip">On the environment of pre-production, the emails you receive (account creation, password forgotten, newsletters... ) are all redirected to our internal mailbox <b>dwebetdsi@gmail.com</b> you can request access to your contact at Comexposium.</p>
 
-<h2 id="Ouvrir-interface-mot-de-passe"><a href="#Ouvrir-interface-mot-de-passe" class="headerlink" title="Ouvrir-interface-mot-de-passe" data-scroll="">Ouvrir l'interface de mot de passe oublié</a></h2>
-<p>Voici un exemple ci-dessous qui ouvre l'interface de réinitilisation de mot de passe :</p>
+<h2 id="Ouvrir-interface-mot-de-passe"><a href="#Ouvrir-interface-mot-de-passe" class="headerlink" title="Ouvrir-interface-mot-de-passe" data-scroll="">Open the forgotten password interface</a></h2>
+<p>Here is an example below that opens the password reset interface:</p>
 </p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
@@ -290,12 +294,12 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="myPasswordCap">Ouvrir l'interface de mot de passe oublié</button>
+  <button id="myPasswordCap">Open the forgotten password interface</button>
 </div>
 
 
-<h2 id="Verifier-connexion"><a href="#Verifier-connexion" class="headerlink" title="Vérifier si l'utilisateur est connecté" data-scroll="">Vérifier si l'utilisateur est connecté</a></h2>
-<p>Vous pouvez vérifier si un utilisateur est connecté. Cette méthode renvoie un booléen. <br /> <i>true</i> : l'utilisateur est connecté <br /> <i>false</i> : l'utilisateur n'est pas connecté</p>
+<h2 id="Verifier-connexion"><a href="#Verifier-connexion" class="headerlink" title="Vérifier si l'utilisateur est connecté" data-scroll="">Check if the user is logged in</a></h2>
+<p>You can check if a user is logged in. This method returns a boolean. <br /> <i>true</i> :the user is logged in <br /> <i>false</i> : the user is not logged in</p>
 <!-- <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"cxpmClientAccountWidget"</span> <br />     <span class="attr">data-salon</span>=<span class="string">"exemple"</span>
      <span class="attr">data-sessionSalon</span>=<span class="string">"exemple_2018"</span> <br />     <span class="attr">data-application</span>=<span class="string">"2a6d06fc8089bbff0889aadc02d4a14ac1bdd03a"</span>
@@ -309,12 +313,12 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="isUserLoggedDemo">Vérifier si l'utilisateur est connecté</button>
+  <button id="isUserLoggedDemo">Check if the user is logged in</button>
 </div>
 
 
-<h2 id="Deconnecter-utilisateur"><a href="#Deconnecter-utilisateur" class="headerlink" title="Déconnecter un utilisateur" data-scroll="">Déconnecter un utilisateur</a></h2>
-<p>Vous pouvez déconnecter l'utilisateur comme ceci :</p>
+<h2 id="Deconnecter-utilisateur"><a href="#Deconnecter-utilisateur" class="headerlink" title="Déconnecter un utilisateur" data-scroll="">Disconnect a user</a></h2>
+<p>You can disconnect the user by doing:</p>
 <!-- <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"cxpmClientAccountWidget"</span> <br />     <span class="attr">data-salon</span>=<span class="string">"exemple"</span>
      <span class="attr">data-sessionSalon</span>=<span class="string">"exemple_2018"</span> <br />     <span class="attr">data-application</span>=<span class="string">"2a6d06fc8089bbff0889aadc02d4a14ac1bdd03a"</span>
@@ -330,57 +334,57 @@ Votre contact chez Comexposium devra également <b>autoriser tous les noms de do
     <span class="line">});</span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
-<i><em style="font-size: 14px;">L'utilisateur sera déconnecté de tous les environnements utilisant le comexposiumConnect</em></i>
+<i><em style="font-size: 14px;">The user will be disconnected from all environments using the comexposiumConnect</em></i>
 <div class="demo">
-  <button id="myOpenCapDisconnect">Déconnecter l'utilisateur</button>
+  <button id="myOpenCapDisconnect">Disconnect the user</button>
 </div>
 
-<h2 id="Evenements"><a href="#Evenements" class="headerlink" title="Les Evenements" data-scroll="">Les Évènements Javascript</a></h2>
-<p>Une fois correctement chargée, la bibliothèque déclenche certains événements pour faciliter votre flux de travail lors de l'utilisation de ComexposiumConnect. Gardez à l'esprit que nous créons une variable Javascript nommée <i>window.cxpm.jQuery</i> avec la version requise de jQuery.
-En dehors de l'événement <i>comexposiumConnectLoaded</i>, tous les événements sont déclenchés avec <i>window.cxpm.jQuery</i>.</p>
+<h2 id="Evenements"><a href="#Evenements" class="headerlink" title="Les Evenements" data-scroll="">Javascript Events</a></h2>
+<p>When properly loaded, the library triggers certain events to ease your workflow when using ComexposiumConnect. Keep in mind that we are creating a JavaScript variable named <i>window.cxpm.jQuery</i> with the required version of jQuery.
+Outside the <i>comexposiumConnectLoaded</i> event, all events are triggered with <i>window.cxpm.jQuery</i>.</p>
 <h3 id="Widget-charge"><a href="#Widget-charge" class="headerlink" title="Widget chargé" data-scroll="">comexposiumConnectLoaded</a></h3>
-<p>Lorsque la bibliothèque est entièrement chargée, un événement est déclenché pour vous informer que tout est prêt.
-Vous pouvez écouter vos évènements personnalisés à partir du moment où le widget est prêt, cet événement sera déclenché depuis le scope global jQuery ($ ou jQuery) :</p>
+<p>When the library is fully loaded, an event is triggered to inform you that everything is ready.
+You can listen to your custom events from the moment the widget is ready, this event will be triggered from the global scope jQuery ($ or jQuery):</p>
 
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLoaded",<span class="keyword">function</span>(){
-    <span class="line"><span class="comment"><i>Execute quelque chose</i></span></span>
+    <span class="line"><span class="comment"><i>Execute something</i></span></span>
     <span class="line">window.cxpm.jQuery(<span class="keyword">document</span>).<span class="keyword">on</span>("MON_EVENEMENT",<span class="keyword">function</span>(){
-      <span class="line"><span class="comment"><i>Ecoute un évènement personnalisé</i></span></span>
+      <span class="line"><span class="comment"><i>Listen to a personalized event</i></span></span>
     <span class="line">});</span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
 
 <h3 id="Utilisateur-connecte"><a href="#Utilisateur-connecte" class="headerlink" title="Utilisateur connecté" data-scroll="">comexposiumConnectLogged</a></h3>
-<p>Cet événement est déclenché lorsque l'utilisateur est connecté en SSO au ComexposiumConnect. Cela peut se produire lors du chargement de la page (l'utilisateur est déjà connecté au système) ou lors de la soumission du formulaire de connexion :</p>
+<p>This event is triggered when the user is connected in SSO to ComexposiumConnect. This can happen when the page is loaded (the user is already connected to the system) or when submitting the login form:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword">function</span>(){
-    <span class="line"><span class="comment"><i>Execute quelque chose</i></span></span>
+    <span class="line"><span class="comment"><i>Execute something</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
 
 <h3 id="Utilisateur-cree"><a href="#Utilisateur-cree" class="headerlink" title="Utilisateur creé" data-scroll="">comexposiumConnectRegisterOk</a></h3>
-<p>Cet événement indique que l'utilisateur a fermé l'interface après une création de compte.
-Le callback reçoit 2 paramètres, l'événement et l'adresse e-mail utilisée pour créer le compte :</p>
+<p>This event indicates that the user closed the interface after creating an account.
+The callback can take 2 parameters, the event and the e-mail address used to create the account:</p>
 
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">window.cxpm.jQuery(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectRegisterOk",<span class="keyword">function</span>(event, email){
-    <span class="line"><span class="comment"><i>Un compte a été créé et nous pouvons récupérer l'email</i></span></span>
+    <span class="line"><span class="comment"><i>An account has been created and we can get the email</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
 
-<h2 id="Recuperation-email"><a href="#Recuperation-email" class="headerlink" title="Récuperation-email" data-scroll="">Récupérer les informations de l'utilisateur</a></h2>
-<p>L'utilisateur peut être reconnu et connecté automatiquement via le cookie SSO ou bien il peut se connecter en utilisant le widget de connexion ComexposiumConnect.
-Il est ensuite possible de récupérer l'email de l'utilisateur, le jeton JWT et savoir si l'email connecté est un exposant sur la session en cours.</p>
-<p>Pour cela, vous pouvez écouter l'événement jQuery nommé <a data-scroll="" href="#Utilisateur-connecte"><b>"comexposiumConnectLogged"</b></a> et qui peut prendre 4 paramètres dont l'email :</p>
+<h2 id="Recuperation-email"><a href="#Recuperation-email" class="headerlink" title="Récuperation-email" data-scroll="">Retrieve user information</a></h2>
+<p>The user can be recognized and logged in automatically via the SSO cookie or he can log in using the ComexposiumConnect login widget.
+Then, it is possible to get the user's email, the JWT token and we can know if the connected email is an exhibitor, a vip or a speaker on the current session.</p>
+<p>To perform this, you can listen to the jQuery event named <a data-scroll="" href="#Utilisateur-connecte"><b>"comexposiumConnectLogged"</b></a> which can take 4 parameters including email:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword">function</span>(event, email, token, isExhibitor){
     <span class="line">console.log(email, token, isExhibitor);</span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
-<p>Connectez-vous grâce au bouton ci-dessous et ouvrez la console de votre navigateur :</p>
+<p>Try it by sign in with the button below and open your browser console:</p>
 <div id="app" class="demo">
-  <button id="openCap">Ouvrir l'interface de connexion SSO</button>
+  <button id="openCap">Open the SSO login interface</button>
   <div
         id="cxpmClientAccountWidget"
         data-salon="exemple"
@@ -390,7 +394,7 @@ Il est ensuite possible de récupérer l'email de l'utilisateur, le jeton JWT et
   >
   </div>
 </div>
-<p>Pour vérifier les informations côté serveur, vous pouvez également <a href="http://docs.comexposium-sso.com/" target="_blank">utiliser notre API</a> pour vous assurer que le token ou l'email de l'utilisateur est bien valide.</p>
+<p>To check the information on the server side, you can also <a href="http://docs.comexposium-sso.com/" target="_blank">use our API</a> to make sure that the user's token or email is valid.</p>
 <script src="https://s3.eu-west-2.amazonaws.com/s3.preprod-comexposium/js/loader.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -412,8 +416,8 @@ $(document).ready(function(){
   });
   $(document).on("comexposiumConnectLogged",function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
-    alert("Vous êtes connecté au comexposiumConnect");
-    $("#openCap, #OpenCap2, #myOpenCap, #myPasswordCap").html("Vous êtes déjà connectés");
+    alert("Vyou are connected to the comexposiumConnect");
+    $("#openCap, #OpenCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
   $(document).on("comexposiumConnectLoaded",function(){
     if (cxpm.version.useraccount.sdkBuild != undefined) {
@@ -423,13 +427,13 @@ $(document).ready(function(){
 });
 </script>
 
-<h2 id="Erreurs"><a href="#Erreurs" class="headerlink" title="Les Erreurs" data-scroll="">Codes d'erreurs</a></h2>
+<h2 id="Erreurs"><a href="#Erreurs" class="headerlink" title="Les Erreurs" data-scroll="">Error codes</a></h2>
 <p>
 <table>
 <tbody>
 <tr>
 <td>
-<p><span style="font-weight: 400;">Nom</span></p>
+<p><span style="font-weight: 400;">Name</span></p>
 </td>
 <td>
 <p><span style="font-weight: 400;">Code</span></p>
