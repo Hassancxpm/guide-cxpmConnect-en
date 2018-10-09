@@ -117,7 +117,7 @@
 
     <p>You can check our <a href="http://docs.comexposium-sso.com/" target="_blank">API</a> to test all our routes. There is a sandbox plugged on the pre-preproduction environment.</p>
 
-    <p>This documentation provides example on how to install, use and get some basic informations about comexposiumConnect.</p>
+    <p>This documentation provides examples on how to install, use and get some basic informations about comexposiumConnect.</p>
 
     <p>If you are a third party user, you will probably receive an account with specific rights allowing you to have specific access to the API. This account will be flagged as “thirdPartyAccount” and will have specific rights only for API purpose.</p>
     <p>Using a “thirdPartyAccount” account won’t work on frontend. Please consider creating a brand new one in order to use it as a regular user on frontend.</p>
@@ -364,7 +364,7 @@ You can listen to your custom events from the moment the widget is ready, this e
 <h3 id="Utilisateur-connecte"><a href="#Utilisateur-connecte" class="headerlink" title="Utilisateur connecté" data-scroll="">comexposiumConnectLogged</a></h3>
 <p>This event is triggered when the user is connected in SSO to ComexposiumConnect. This can happen when the page is loaded (the user is already connected to the system) or when submitting the login form:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword">function</span>(){
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword"> function</span>(){
     <span class="line"><span class="comment"><i>Execute something</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
