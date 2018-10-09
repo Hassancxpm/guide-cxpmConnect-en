@@ -353,7 +353,7 @@ Outside the <i>comexposiumConnectLoaded</i> event, all events are triggered with
 You can listen to your custom events from the moment the widget is ready, this event will be triggered from the global scope jQuery ($ or jQuery):</p>
 
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLoaded",<span class="keyword">function</span>(){
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLoaded", <span class="keyword">function</span>(){
     <span class="line"><span class="comment"><i>Execute something</i></span></span>
     <span class="line">window.cxpm.jQuery(<span class="keyword">document</span>).<span class="keyword">on</span>("MON_EVENEMENT",<span class="keyword">function</span>(){
       <span class="line"><span class="comment"><i>Listen to a personalized event</i></span></span>
@@ -364,7 +364,7 @@ You can listen to your custom events from the moment the widget is ready, this e
 <h3 id="Utilisateur-connecte"><a href="#Utilisateur-connecte" class="headerlink" title="Utilisateur connecté" data-scroll="">comexposiumConnectLogged</a></h3>
 <p>This event is triggered when the user is connected in SSO to ComexposiumConnect. This can happen when the page is loaded (the user is already connected to the system) or when submitting the login form:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword"> function</span>(){
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged", <span class="keyword"> function</span>(){
     <span class="line"><span class="comment"><i>Execute something</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
@@ -374,7 +374,7 @@ You can listen to your custom events from the moment the widget is ready, this e
 The callback can take 2 parameters, the event and the e-mail address used to create the account:</p>
 
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-  <span class="line">window.cxpm.jQuery(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectRegisterOk",<span class="keyword">function</span>(event, email){
+  <span class="line">window.cxpm.jQuery(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectRegisterOk", <span class="keyword">function</span>(event, email){
     <span class="line"><span class="comment"><i>An account has been created and we can get the email</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
