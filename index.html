@@ -420,12 +420,12 @@ $(document).ready(function(){
   $("#myPasswordCap").click(function(){
     comexposiumCap.openCap('request-password');
   });
-  $(document).on("comexposiumConnectLogged",function(event, email, token, isExhibitor){
+  $(document).on("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
     alert("You are connected to the comexposiumConnect");
     $("#openCap, #OpenCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
-  $(document).on("comexposiumConnectLoaded",function(){
+  $(document).on("comexposiumConnectLoaded", function(){
     if (cxpm.version.useraccount.sdkBuild != undefined) {
       $("#main > div.sidebar > div > div > ul > li:nth-child(1) > h3").html('SDK ' + '<span class="versionGuide">preprod version ' + cxpm.version.useraccount.sdkBuild + '</span>')
     }
