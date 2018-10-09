@@ -384,7 +384,7 @@ The callback can take 2 parameters, the event and the e-mail address used to cre
 Then, it is possible to get the user's email, the JWT token and we can know if the connected email is an exhibitor, a vip or a speaker on the current session.</p>
 <p>To perform this, you can listen to the jQuery event named <a data-scroll="" href="#Utilisateur-connecte"><b>"comexposiumConnectLogged"</b></a> which can take 4 parameters including email:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged",<span class="keyword">function</span>(event, email, token, isExhibitor){
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogged", <span class="keyword">function</span>(event, email, token, isExhibitor){
     <span class="line">console.log(email, token, isExhibitor);</span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
