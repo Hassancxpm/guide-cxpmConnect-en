@@ -115,35 +115,34 @@
 
     <p>The ComexposiumConnect SSO widget is used to simplify the experience of our users as they move from one service to another.</p>
 
-    <p>You can check our <a href="http://docs.comexposium-sso.com/" target="_blank">API</a> to test all our routes. There is a sandbox plugged on the pre-preproduction environment.</p>
+    <p>You can check our <a href="http://docs.comexposium-sso.com/" target="_blank">API</a>. There is a sandbox plugged on the pre-preproduction environment.</p>
 
     <p>This documentation provides examples on how to install, use and get some basic informations about comexposiumConnect.</p>
 
-    <p>If you are a third party user, you will probably receive an account with specific rights allowing you to have specific access to the API. This account will be flagged as “thirdPartyAccount” and will have specific rights only for API purpose.</p>
-    <p>Using a “thirdPartyAccount” account won’t work on frontend. Please consider creating a brand new one in order to use it as a regular user on frontend.</p>
+    <p>If you are a third party user, you will probably receive an account with specific rights allowing you to have specific access to the <a href="http://docs.comexposium-sso.com/" target="_blank">API</a>. This account will be flagged as “thirdPartyAccount” and will have specific rights only for <a href="http://docs.comexposium-sso.com/" target="_blank">API</a> purpose.</p>
+    <p>Using a "thirdPartyAccount" account won't work on frontend. Please consider creating a brand new one in order to use it as a regular user on frontend.</p>
 
 <h2 id="sso"><a href="#sso" class="headerlink" title="Sso" data-scroll="">SSO</a></h2>
 
   <h4>The principle</h4>
 
-  <p>Single Sign-On (SSO) is the feature that allows a user to authenticate
-  <b>once for the duration of a session regardless of the number of applications that require authentication</b>.<br />
-  Users can then access their data directly seamlessly, without the need to re-enter a new pair of username / password.</p>
+  <p>Single Sign-On (SSO) is the feature that allows a user to authenticate <b>once for the duration of a session regardless of the number of applications that require authentication</b>.<br />
+  Then, users can directly access their data, without enter a new pair of username / password again.</p>
 
   <h4>The goal</h4>
 
-  <p>For the system to work, the ComexposiumConnect widget must <b>be installed on all pages of your application / platform.</b>
-     Once the widget is installed, you can <a data-scroll="" href="#Ouvrir-interface-creation-sso">create an account</a> and directly test the correct operation of the SSO.
+  <p>To work, the ComexposiumConnect widget must <b>be installed on all pages of your application / platform.</b>
+     Once the widget is installed, you can <a data-scroll="" href="#Ouvrir-interface-creation-sso">create an account</a> and test SSO connexion.
   </p>
 
   <h4>How it works</h4>
 
-  <p>Once the widget is correctly installed and initialized, the transition from a Comexposium platform to your application / platform must be possible without the user needing to connect.</p>
-  <p>To ensure the smooth operation of the SSO passage from one of the Comexposium platforms to your application / platform, you have at your disposal all the methods offered by <a target="_blank" href="http://docs.comexposium-sso.com/">the Comexposium API</a> in addition to those available below.</p>
+  <p>Once the widget is correctly installed and initialized, the transition from a Comexposium platform to your application / platform must be possible without the user need to connect again.</p>
+  <p>To ensure the operation from one of the Comexposium platforms to your application / platform, you have at your disposal all the methods offered by <a target="_blank" href="http://docs.comexposium-sso.com/">the Comexposium API</a> in addition to those available below.</p>
 
 <h2 id="script-loader"><a href="#script-loader" class="headerlink" title="Script Loader" data-scroll="">Script loader</a></h2>
 
-<p>After jQuery loaded on your page, you will need to load the following script that comes in 2 environments depending on the progress of your project :</p>
+<p>After jQuery loaded on your page, you will need to load the following script that comes in 2 environments depending on the progress of your project:</p>
 
 <h4>Pre-production:</h4>
 
@@ -157,9 +156,9 @@
   <figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3-eu-west-1.amazonaws.com/s3.comexposium/js/loader.min.js"</span>&gt;</span></span><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 </p>
 
-    <p>In order to use the <strong>ComexposiumConnect</strong> widget, You need to load jQuery in order to use ComexposiumConnect.
+    <p>In order to use the <strong>ComexposiumConnect</strong> widget, You first need to load jQuery.
 We encourage third party applications to use at least jQuery 2.0, but we strongly recommend to use a more recent version (3.x). <br />
-       <br /> As a security, if we detect no jQuery or a version older than 2.0, we dynamically load jQuery 3.1.1 without taking hand on the dollar ($) Javascript var. It allows you to still use your version or your library.
+       <br /> As a security, if we don't detect jQuery or if the version is older than 2.0, we dynamically load jQuery 3.1.1 without taking hand on the dollar ($) Javascript var. It allows you to still use your version or your library.
        The new version is available in the var: <br />
 <figure class="highlight js"><table>
   <tbody><tr><td class="code">
@@ -170,7 +169,7 @@ We encourage third party applications to use at least jQuery 2.0, but we strongl
 <li>If $ is ok with the version, we copy it to window.cxpm.jQuery.</li>
 </p>
 
-<p>Once the loader.min.js script is loaded and authorized from Comexposium Team, you can access to the global variables <b>comexposiumCap</b> and <b>comexposiumConnect</b>.</p>
+<p>Once the loader.min.js script is loaded and authorized by the Comexposium Team, you can access to the global variables <b>comexposiumCap</b> and <b>comexposiumConnect</b>.</p>
 
 <p>You can also check which version of the loader and SDK you work with:</p>
 
@@ -179,15 +178,15 @@ We encourage third party applications to use at least jQuery 2.0, but we strongl
     <pre><span class="line"><span class="name">cxpm.</span><span class="string">version</span><span class="name">.useraccount</span></span><br /><span class="comment"><i>{loaderBuild: "201X.X.X", sdkBuild: "201X.X.X"}</i></span></pre></td></tr></tbody></table>
 </figure>
 
-<p>Now you just have to include the <a href="#code-html" data-scroll="">HTML Code</a> html code in your page to make the widget work.</p>
+<p>Now, you just have to include the <a href="#code-html" data-scroll="">HTML Code</a> in your page to load the widget.</p>
 
 
 <h2 id="code-html"><a href="#code-html" class="headerlink" title="Code-HTML" data-scroll="">HTML Code</a></h2>
 <p class="tip">
-The values ​​to be entered in the attributes of the HTML code are specific to each event, each salon and each session. They will be communicated to you directly by your contact at Comexposium. <br />
-Your contact at Comexposium will also have to <b>allow all the domain names you call and load the widget</b> otherwise you will have the following error in the javascript console of your browser:<br /> <i><b style="color:#968e8e;">wrong application token</b></i>
+The values ​​you have to put in the HTML attributes are specific to each event, each event and each session. They will be communicated to you directly by the Comexposium Team. <br />
+The Comexposium Team will also have to <b>allow all the domain names you call</b>, otherwise you will have the following error in the javascript console:<br /> <i><b style="color:#968e8e;">wrong application token</b></i>
 </p>
-<p>Once all your domain names have been authorized by Comexposium, and the <a href="#script-loader" data-scroll="">loader.min.js script</a> as well as your version of jQuery are well loaded in your page, add the following code in the body of your HTML code where you want to integrate the ComexposiumConnect widget:</p>
+<p>Once all your domain names have been authorized by Comexposium, and the <a href="#script-loader" data-scroll="">loader.min.js script</a> as well as your version of jQuery are correctly loaded in your application / platform, you can add the following code in the body part of your HTML code:</p>
 <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"cxpmClientAccountWidget"</span> <br />     <span class="attr">data-salon</span>=<span class="string">"[SHOWROOM_NAME]"</span>
      <span class="attr">data-sessionSalon</span>=<span class="string">"[SHOWROOM_SESSION]"</span> <br />     <span class="attr">data-application</span>=<span class="string">"[YOUR_APPLICATION_ID]"</span>
@@ -195,7 +194,7 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
      &gt;</span><span class="undefined"></span>
     <span class="comment">&lt;!-- Nothing here --&gt;</span>
 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>This is a simple div with 4 attributes. Each of these attributes refers to the event on which it will be configured:</p>
+<p>This is a simple div with 4 attributes. Each of these attributes refers to the event:</p>
 <p>
   <ul>
     <li><b>[SHOWROOM_NAME]</b> : The name of the show related to your use.</li>
@@ -204,12 +203,12 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
     <li><b>[LANGUAGE]</b> :It can take 2 possible values : "fre-FR" or "eng-GB"</li>
   </ul>
 
-  <p class="success">These elements will be sent to you by your contact at Comexposium.</p>
+  <p class="success">These elements will be sent to you by the Comexposium Team.</p>
 
 </p>
 
 <h2 id="Exemple"><a href="#Exemple" class="headerlink" title="Exemple" data-scroll="">Full example</a></h2>
-<p>Here is an example of full integration using the pre-production environment, and having been authorized for the domain name: <b>http://127.0.0.1:63569</b></a>. You can test it by launching a local web server (<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank"><i>especially thanks to this free chrome app</i></a>) on the http port <a href="http://127.0.0.1:63569" target="_blank">63569</a> : </p>
+<p>Here is an example using the pre-production environment, and having been authorized for the domain name: <b>http://127.0.0.1:63569</b></a>. You can test it by launching a local web server (<a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb" target="_blank"><i>especially thanks to this free chrome app</i></a>) on the http port <a href="http://127.0.0.1:63569" target="_blank">63569</a> : </p>
 
 <figure class="highlight html">
   <table><tbody><tr><td class="code"><pre>
@@ -249,7 +248,7 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
 <h2 id="Methodes"><a href="#Methodes" class="headerlink" title="Methodes" data-scroll="">Methods</a></h2>
 
 <p>Most of the methods below are also available on the <a href="http://docs.comexposium-sso.com/" target="_blank">ComexposiumConnect API</a>.
-  You'll also find API routes for authentication, user management, third-party application management, and selection management.
+  You'll also find API routes for the authentication, the user management, the third-party application management, and the selections management.
 </p>
 
 <h2 id="Ouvrir-interface-connexion-sso"><a href="#Ouvrir-interface-connexion-sso" class="headerlink" title="Ouvrir-interface-connexion-sso" data-scroll="">Open the login interface</a></h2>
@@ -268,7 +267,7 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
 </div>
 
 <h2 id="Ouvrir-interface-creation-sso"><a href="#Ouvrir-interface-creation-sso" class="headerlink" title="Ouvrir-interface-creation-sso" data-scroll="">Open the account creation interface</a></h2>
-<p>Here is an example below that opens the SSO account creation interface:</p>
+<p>Here is an example below that calls the SSO account creation interface:</p>
 </p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
@@ -279,17 +278,17 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="myOpenCap">Open the SSO account creation interface</button>
+  <button id="myOpenCap">Call the SSO account creation interface</button>
 </div>
 
-<p>It is also possible to switch from the login interface to the account creation interface directly from the button <b>"Create an account"</b> in the footer of the widget once opened and vice versa :</p>
+<p>It is also possible to switch from the login interface to the account creation interface directly from the button <b>"Create an account"</b> in the footer of the widget:</p>
 
 <img id="widgetVisuel" src="./cxpmconnect_files/widget-visuel.jpg" alt="widget-visual">
 
-<p class="tip">On the pre-production environment, the emails you receive (account creation, password forgotten, newsletters... ) are all redirected to our internal mailbox <b>dwebetdsi@gmail.com</b> you can request access to your contact at Comexposium.</p>
+<p class="tip">On the pre-production environment, all the emails sent (account creation, password forgotten, newsletters... ) are redirected to our internal mailbox <b>dwebetdsi@gmail.com</b> you can request access to your contact at Comexposium.</p>
 
 <h2 id="Ouvrir-interface-mot-de-passe"><a href="#Ouvrir-interface-mot-de-passe" class="headerlink" title="Ouvrir-interface-mot-de-passe" data-scroll="">Open the forgotten password interface</a></h2>
-<p>Here is an example below that opens the password reset interface:</p>
+<p>Here is an example below that calls the password reset interface:</p>
 </p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
@@ -300,7 +299,7 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
 </pre></td></tr></tbody></table></figure>
 
 <div class="demo">
-  <button id="myPasswordCap">Open the forgotten password interface</button>
+  <button id="myPasswordCap">Call the forgotten password interface</button>
 </div>
 
 
@@ -346,11 +345,11 @@ Your contact at Comexposium will also have to <b>allow all the domain names you 
 </div>
 
 <h2 id="Evenements"><a href="#Evenements" class="headerlink" title="Les Evenements" data-scroll="">Javascript Events</a></h2>
-<p>When properly loaded, the library triggers certain events to ease your workflow when using ComexposiumConnect. Keep in mind that we are creating a JavaScript variable named <i>window.cxpm.jQuery</i> with the required version of jQuery.
+<p>When the library is properly loaded, it fires certain events to ease your workflow. Keep in mind that the widget can creating a JavaScript variable named <i>window.cxpm.jQuery</i> with the required version of jQuery.
 Outside the <i>comexposiumConnectLoaded</i> event, all events are triggered with <i>window.cxpm.jQuery</i>.</p>
 <h3 id="Widget-charge"><a href="#Widget-charge" class="headerlink" title="Widget chargé" data-scroll="">comexposiumConnectLoaded</a></h3>
 <p>When the library is fully loaded, an event is triggered to inform you that everything is ready.
-You can listen to your custom events from the moment the widget is ready, this event will be triggered from the global scope jQuery ($ or jQuery):</p>
+You can listen to your custom events from the moment when the widget is ready, this event will be triggered from the global scope jQuery ($ or jQuery):</p>
 
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLoaded", <span class="keyword">function</span>(){
