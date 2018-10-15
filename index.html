@@ -352,7 +352,7 @@ The Comexposium Team will also have to <b>allow all the domain names you call</b
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
   <span class="line">$(<span class="keyword">document</span>).ready(<span class="keyword">function</span>(){</span>
     <span class="line">$("<span class="string">#buttonLogOutSSO</span>").click(<span class="keyword">function</span>(){</span>
-      <span class="line"><span class="keyword">comexposiumConnect</span>.<span class="string">logoutUser</span>();</span>
+      <span class="line"><span class="keyword">comexposiumConnect</span>.<span class="string">disconnectUser</span>();</span>
     <span class="line">});</span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
@@ -430,8 +430,7 @@ $(document).ready(function(){
     comexposiumCap.openCap('register');
   });
   $("#myOpenCapDisconnect").click(function(){
-    comexposiumConnect.logoutUser();
-    setTimeout(function(){window.location.reload();}, 1000);
+    comexposiumConnect.disconnectUser();
   });
   $("#myPasswordCap").click(function(){
     comexposiumCap.openCap('request-password');
