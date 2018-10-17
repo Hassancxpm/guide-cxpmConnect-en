@@ -1453,7 +1453,7 @@ ul.demo li {
   border-left-color: #1489d4;
 }
 .content p.success:before {
-  content: "\f00c";
+  content: "#";
   font-family: FontAwesome;
   background-color: #1489d4;
 }
