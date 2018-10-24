@@ -428,8 +428,7 @@ $(document).ready(function(){
   });
   $("#myOpenCapDisconnect").click(function(){
     comexposiumCap.disconnectUser();
-    $("#openCap2").html("Open the SSO login interface");
-    $("#openCap").html("Open the SSO login interface");
+    $("#openCap2, #openCap").html("Open the SSO login interface");
     $("#myOpenCap").html("Open the SSO account creation interface");
     $("#myPasswordCap").html("Open the forgotten password interface");
     alert("You are disconnected!");
