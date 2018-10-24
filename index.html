@@ -427,7 +427,10 @@ $(document).ready(function(){
     comexposiumCap.openCap('register');
   });
   $("#myOpenCapDisconnect").click(function(){
-    comexposiumCap.disconnectUser()
+    comexposiumCap.disconnectUser();
+    $("#openCap, #openCap2").html("Open the SSO login interface");
+    $("#myOpenCap").html("Open the SSO account creation interface");
+    $("#myPasswordCap").html("Open the forgotten password interface");
     alert("You are disconnected!");
   });
   $("#myPasswordCap").click(function(){
