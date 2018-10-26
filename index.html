@@ -442,8 +442,11 @@ $(document).ready(function(){
   $(document).one("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
     alert("You are connected to the comexposiumConnect");
-    $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
      event.stopImmediatePropagation();
+  });
+  $(document).on("comexposiumConnectLogged", function(event, email, token, isExhibitor){
+    console.log(email, token, isExhibitor);
+    $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
   $(document).on("comexposiumConnectLoaded", function(){
     if (cxpm.version.useraccount.sdkBuild != undefined) {
