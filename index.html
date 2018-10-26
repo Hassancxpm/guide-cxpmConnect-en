@@ -35,6 +35,7 @@
   </a>
   <ul id="nav">
     <li>
+      <div id="moncercle"></div>
   <!-- <form id="search-form">
     <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input type="text" id="search-query-nav" class="search-query st-default-search-input aa-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 13.3333px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="aa-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="aa-dataset-1"></div></span></span>
   </form> -->
@@ -431,6 +432,7 @@ $(document).ready(function(){
     $("#openCap2, #openCap").html("Open the SSO login interface");
     $("#myOpenCap").html("Open the SSO account creation interface");
     $("#myPasswordCap").html("Open the forgotten password interface");
+    $("#moncercle").css('background', 'red');
     alert("You are disconnected!");
   });
   $("#myPasswordCap").click(function(){
@@ -446,6 +448,7 @@ $(document).ready(function(){
   });
   $(document).on("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
+    $("#moncercle").css('background', 'green');
     $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
   $(document).on("comexposiumConnectLoaded", function(){
