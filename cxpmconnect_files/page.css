@@ -1583,3 +1583,12 @@ ul.demo li {
 p {
     text-align: justify;
 }
+#login input[type="submit"] {
+  cursor: pointer;
+}
+#register input[type="submit"] {
+  cursor: pointer;
+}
+#request-password input[type="submit"] {
+  cursor: pointer;
+}
