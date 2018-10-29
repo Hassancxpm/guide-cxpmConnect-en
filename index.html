@@ -451,7 +451,7 @@ $(document).ready(function(){
   });
   $(document).one("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
-    $(".colorize").css('color', '#7ad17a');
+    $(".colorize").css('color', 'limegreen');
     $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
     alert("You are connected to the comexposiumConnect");
      event.stopImmediatePropagation();
