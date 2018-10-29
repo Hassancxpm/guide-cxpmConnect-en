@@ -1592,3 +1592,6 @@ p {
 #request-password input[type="submit"] {
   cursor: pointer;
 }
+button {
+    cursor: pointer;
+}
