@@ -441,7 +441,7 @@ $(document).ready(function(){
     $("#openCap2, #openCap").html("Open the SSO login interface");
     $("#myOpenCap").html("Open the SSO account creation interface");
     $("#myPasswordCap").html("Open the forgotten password interface");
-    $("#moncercle").css('background', 'grey');
+    $("#moncercle").css('border', 'grey 2px solid');
     alert("You are disconnected!");
   });
   $("#myPasswordCap").click(function(){
@@ -457,7 +457,7 @@ $(document).ready(function(){
   });
   $(document).on("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
-    $("#moncercle").css('background', 'green');
+    $("#moncercle").css('border', 'green 2px solid');
     $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
   $(document).on("comexposiumConnectLoaded", function(){
