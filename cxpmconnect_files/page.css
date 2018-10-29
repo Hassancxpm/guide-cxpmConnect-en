@@ -1592,13 +1592,3 @@ p {
 #request-password input[type="submit"] {
   cursor: pointer;
 }
-#moncercle {
-  border-radius: 50%;
-  margin-top: 4px;
-  width: 8px;
-  margin-left: 1px;
-  height: 8px;
-  position: absolute;
-  border: grey 2px solid;
-  display: inline-block;
-}

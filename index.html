@@ -79,8 +79,7 @@
       <h2>Integration guide</h2>
       <ul class="menu-root">
         <li><h3>SDK <span class="versionGuide">preprod</span></h3></li>
-        <a href="#intro" class="sidebar-link current" data-scroll="">ComexposiumConnect SS</a>
-        <div id="moncercle"></div>
+        <a href="#intro" class="sidebar-link current" data-scroll="">ComexposiumConnect <span class="colorize">SSO</span></a>
         <ul class="menu-sub">
           <li><a class="section-link active" data-scroll="" href="#sso">SSO</a></li>
           <li><a class="section-link" data-scroll="" href="#script-loader">Script loader</a></li>
@@ -441,7 +440,7 @@ $(document).ready(function(){
     $("#openCap2, #openCap").html("Open the SSO login interface");
     $("#myOpenCap").html("Open the SSO account creation interface");
     $("#myPasswordCap").html("Open the forgotten password interface");
-    $("#moncercle").css('border', 'grey 2px solid');
+    $(".colorize").css('color', '#1489d4');
     alert("You are disconnected!");
   });
   $("#myPasswordCap").click(function(){
@@ -452,14 +451,14 @@ $(document).ready(function(){
   });
   $(document).one("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
-    $("#moncercle").css('border', '#7ad17a 2px solid');
+    $(".colorize").css('color', '#7ad17a');
     $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
     alert("You are connected to the comexposiumConnect");
      event.stopImmediatePropagation();
   });
   $(document).on("comexposiumConnectLogged", function(event, email, token, isExhibitor){
     console.log(email, token, isExhibitor);
-    $("#moncercle").css('border', '#7ad17a 2px solid');
+    $(".colorize").css('color', '#7ad17a');
     $("#openCap, #openCap2, #myOpenCap, #myPasswordCap").html("You are already connected");
   });
   $(document).on("comexposiumConnectLoaded", function(){
