@@ -1593,11 +1593,11 @@ p {
   cursor: pointer;
 }
 #moncercle {
-  background: red;
+  background: grey;
   border-radius: 50%;
-  margin-top: 10px;
-  width: 0.7em;
-  height: 0.7em;
-  margin-left: 0.5em;
+  margin-top: 4px;
+  width: 11px;
+  height: 12px;
+  margin-left: 1px;
   display: inline-block;
 }
