@@ -1473,6 +1473,7 @@ ul.demo li {
 }
 #main.fix-sidebar .sidebar {
   position: fixed;
+  height: 100%;
 }
 @media screen and (min-width: 1590px) {
   #header {
