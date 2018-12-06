@@ -91,6 +91,8 @@
           <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-creation-sso">Open the account creation interface</a></li>
           <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-mot-de-passe">Open the forgotten password interface</a></li>
           <li><a class="section-link" data-scroll="" href="#Ouvrir-interface-generic">Open the generic messages interface</a></li>
+          <li><a class="section-link" data-scroll="" href="#Authentifier-utilisateur">Authenticate a user</a></li>
+          <li><a class="section-link" data-scroll="" href="#Create-new-user">Create a new user</a></li>
           <li><a class="section-link" data-scroll="" href="#Verifier-connexion">Check if the user is logged in</a></li>
           <li><a class="section-link" data-scroll="" href="#Deconnecter-utilisateur">Disconnect the user</a></li>
         </ul>
@@ -341,6 +343,33 @@ The Comexposium Team will also have to <b>allow all the domain names you call</b
   <button id="myGenericCap">Open the generic messages interface</button>
 </div>
 
+<h2 id="Authentifier-utilisateur"><a href="#Authentifier-utilisateur" class="headerlink" title="Authentifier-utilisateur" data-scroll="">Authenticate a user</a></h2>
+<p>To authenticate a user, you can use the following method:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre>
+  <span class="line">comexposiumConnect.<span class="keyword">loginUser</span>(<span class="keyword">"email"</span>, <span class="keyword">"password"</span>, <span class="string">false</span>, <span class="keyword">function</span>(){</span>
+    <span class="line"><span class="comment">// Here I can check my statusCode and do whatever I want</span></span>
+    <span class="line">if (<span class="keyword">result</span>.<span class="string">statusCode === 0</span>){</span>
+      <span class="line"><span class="comment">// login successful</span></span>
+      <span class="line"><span class="string"> } else {</span></span>
+      <span class="line"><span class="keyword">console</span>.<span class="string">log</span>(result.statusCode, result.message);</span>
+    <span class="line">}</span>
+  <span class="line">});</span>
+</pre></td></tr></tbody></table></figure>
+
+<p>The third parameter is a boolean which corresponds to the <b>stayConnected</b> variable. The last parameter which is a callback is not mandatory.</p>
+
+<h2 id="Create-new-user"><a href="#Create-new-user" class="headerlink" title="Create-new-user" data-scroll="">Create a new user</a></h2>
+<p>To create a new user, you can use the following method:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre>
+  <span class="line">comexposiumConnect.<span class="keyword">createUser</span>(<span class="keyword">"email"</span>, <span class="keyword">function</span>(){</span>
+    <span class="line"><span class="comment">// Here I can check my statusCode and do whatever I want</span></span>
+    <span class="line">if (<span class="keyword">result</span>.<span class="string">statusCode === 0</span>){</span>
+      <span class="line"><span class="comment">// login successful</span></span>
+      <span class="line"><span class="string"> } else {</span></span>
+      <span class="line"><span class="keyword">console</span>.<span class="string">log</span>(result.statusCode, result.message);</span>
+    <span class="line">}</span>
+  <span class="line">});</span>
+</pre></td></tr></tbody></table></figure>
 
 <h2 id="Verifier-connexion"><a href="#Verifier-connexion" class="headerlink" title="Vérifier si l'utilisateur est connecté" data-scroll="">Check if the user is logged in</a></h2>
 <p>You can check if a user is logged in. This method returns a boolean. <br /> <i>true</i>: the user is logged in <br /> <i>false</i>: the user is not logged in</p>
