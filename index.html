@@ -383,7 +383,7 @@ The Comexposium Team will also have to <b>allow all the domain names you call</b
 </div>
 
 <h2 id="Verifier-status"><a href="#Verifier-status" class="headerlink" title="Vérifier le status de l'utilisateur connecté" data-scroll="">Check the user status</a></h2>
-<p>You can get the user status. This method returns an array with all user status.<br />If the user have no status, the result will be an empty array.</p>
+<p>You can get the user status. This method returns an array with all user status.<br />If the user have no status, or if he isn't connected, the result will be an empty array.</p>
 <p>You can add or remove any status by using <a href="http://docs.comexposium-sso.com/" target="_blank">our API</a></p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
     <span class="line"><span class="keyword">comexposiumConnect</span>.<span class="string">getUserTypes</span>(<span class="keyword">function</span>(<span class="string">listOfUserType</span>){
