@@ -94,6 +94,7 @@
           <li><a class="section-link" data-scroll="" href="#Authentifier-utilisateur">Authenticate a user</a></li>
           <li><a class="section-link" data-scroll="" href="#Create-new-user">Create a new user</a></li>
           <li><a class="section-link" data-scroll="" href="#Verifier-connexion">Check if the user is logged in</a></li>
+          <li><a class="section-link" data-scroll="" href="#Verifier-status">Check the user status</a></li>
           <li><a class="section-link" data-scroll="" href="#Deconnecter-utilisateur">Disconnect the user</a></li>
         </ul>
         <li><a class="section-link" data-scroll="" href="#Evenements">Events</a></li>
@@ -381,11 +382,22 @@ The Comexposium Team will also have to <b>allow all the domain names you call</b
   <button id="isUserLoggedDemo">Check if the user is logged in</button>
 </div>
 
+<h2 id="Verifier-status"><a href="#Verifier-status" class="headerlink" title="Vérifier le status de l'utilisateur connecté" data-scroll="">Check the user status</a></h2>
+<p>You can get the user status. This method returns an array with all user status.<br />If the user have no status, the result will be an empty array.</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre>
+    <span class="line"><span class="keyword">comexposiumConnect</span>.<span class="string">getUserTypes</span>(<span class="keyword">function</span>(<span class="string">listOfUserType</span>){
+      <span class="line">console.log(<span class="keyword">listOfUserType</span>)</span>
+    });</span>
+</pre></td></tr></tbody></table></figure>
+
+<div class="demo">
+  <button id="checkUserStatus">Check the user status</button>
+</div>
 
 <h2 id="Deconnecter-utilisateur"><a href="#Deconnecter-utilisateur" class="headerlink" title="Déconnecter un utilisateur" data-scroll="">Disconnect a user</a></h2>
 <p>You can disconnect the user by doing:</p>
 <figure class="highlight js"><table><tbody><tr><td class="code"><pre>
-      <span class="line"><span class="keyword">comexposiumCap</span>.<span class="string">disconnectUser</span>();</span>
+      <span class="line"><span class="keyword">comexposiumCap</span>.<span class="string">disconnectUser</span>(list);</span>
 </pre></td></tr></tbody></table></figure>
 <i><em style="font-size: 14px;">The user will be disconnected from all environments using the comexposiumConnect</em></i>
 <div class="demo">
@@ -453,6 +465,11 @@ Then, it is possible to get the user's email, the JWT token and we can know if t
 $(document).ready(function(){
   $("#isUserLoggedDemo").click(function(){
     alert(comexposiumCap.isUserLogged())
+  });
+  $("#checkUserStatus").click(function(){
+    comexposiumConnect.getUserTypes(function(listOfUserType) {
+      alert('User Types : ' + listOfUserType.join(", "))
+    })
   });
   $("#openCap, #openCap2").click(function(){
     comexposiumCap.openCap('login');
