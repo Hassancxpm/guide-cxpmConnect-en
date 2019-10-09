@@ -102,6 +102,8 @@
           <ul>
             <li><a class="section-link" data-scroll="" href="#Widget-charge">comexposiumConnectLoaded</a></li>
             <li><a class="section-link" data-scroll="" href="#Utilisateur-connecte">comexposiumConnectLogged</a></li>
+            <li><a class="section-link" data-scroll="" href="#Utilisateur-deconnecte">comexposiumConnectLogout</a></li>
+            <li><a class="section-link" data-scroll="" href="#Utilisateur-tokenexpired">comexposiumConnectTokenExpired</a></li>
             <li><a class="section-link" data-scroll="" href="#Utilisateur-cree">comexposiumConnectRegisterOk</a></li>
           </ul>
         <li><a class="section-link" data-scroll="" href="#Recuperation-email">Retrieve user information</a></li>
@@ -429,6 +431,34 @@ You can listen to your custom events from the moment when the widget is ready, t
     <span class="line"><span class="comment"><i>Execute something</i></span></span>
   <span class="line">});</span>
 </pre></td></tr></tbody></table></figure>
+
+<h3 id="Utilisateur-deconnecte"><a href="#Utilisateur-deconnecte" class="headerlink" title="Utilisateur deconnecté" data-scroll="">comexposiumConnectLogout</a></h3>
+<p>This event is triggered when the user is disconnected. This can happen when the user has been disconnected in an other
+tab, or in an other application:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre>
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectLogout", <span class="keyword">function</span>(){
+    <span class="line"><span class="comment"><i>Execute something</i></span></span>
+  <span class="line">});</span>
+</pre></td></tr></tbody></table></figure>
+
+<h3 id="Utilisateur-tokenexpired"><a href="#Utilisateur-tokenexpired" class="headerlink" title="Utilisateur token expiré"
+    data-scroll="">comexposiumConnectLogged</a></h3>
+<p>This event is triggered when the token expired. Remember that the JWT token has a validated date</p>
+<figure class="highlight js">
+  <table>
+    <tbody>
+      <tr>
+        <td class="code">
+          <pre>
+  <span class="line">$(<span class="keyword">document</span>).<span class="keyword">on</span>("comexposiumConnectTokenExpired", <span class="keyword">function</span>(){
+    <span class="line"><span class="comment"><i>Execute something</i></span></span>
+  <span class="line">});</span>
+</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
 
 <h3 id="Utilisateur-cree"><a href="#Utilisateur-cree" class="headerlink" title="Utilisateur creé" data-scroll="">comexposiumConnectRegisterOk</a></h3>
 <p>This event indicates that the user closed the interface after creating an account.
